@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ImageGallery } from '../components/image-gallery'
+
+const pictures = [
+	{
+		src: 'https://images.unsplash.com/photo-1526400473556-aac12354f3db?auto=format&fit=crop&w=1740&q=80',
+		alt: 'A sunset over the mountains in Lofoten Islands, Svolvær, Norway'
+	},
+	{
+		src: 'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=1548&q=80',
+		alt: 'A small fisherman village in Lofoten Islands'
+	}
+] as const;
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<ImageGallery>
+			{
+				pictures.map(picture => <img src={picture.src} alt={picture.alt} />)
+			}
+		</ImageGallery>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+</style>
