@@ -5,14 +5,15 @@ const tagName = 'image-gallery'
 export class ImageGallery extends LitElement {
   static styles = css`
     :host {
+      --gap: var(--gap, 0);
     }
 
-    [part='scroll-container'] {
-      width: 400px;
-      aspect-ratio: 3/2;
+    :host::part(scroll-container) {
+      width: 100%;
       display: grid;
       grid-auto-columns: 100%;
       grid-auto-flow: column;
+      gap: var(--gap);
       align-items: center;
       overflow-x: auto;
       overscroll-behavior-x: contain;
@@ -20,9 +21,11 @@ export class ImageGallery extends LitElement {
       user-select: none;
       -webkit-tap-highlight-color: transparent;
       scrollbar-width: none;
+      scroll-padding-inline: var(--gap);
+      padding-inline: var(--gap);
     }
 
-    [part='scroll-container']::-webkit-scrollbar {
+    :host::part(scroll-container)::-webkit-scrollbar {
       display: none;
     }
 
@@ -30,7 +33,7 @@ export class ImageGallery extends LitElement {
       box-sizing: border-box;
       width: 100%;
       height: 100%;
-      overscroll-behavior-x: contain;
+      object-fit: cover;
       scroll-snap-type: x mandatory;
       scroll-snap-align: start;
       scroll-snap-stop: always;
@@ -38,7 +41,7 @@ export class ImageGallery extends LitElement {
   `
 
   render() {
-    return html`<div><slot part="scroll-container" /></div>`
+    return html`<slot part="scroll-container" />`
   }
 }
 

@@ -17,7 +17,7 @@ const pictures = [
 <Layout title="Welcome to Astro.">
 	<main>
 		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<ImageGallery>
+		<ImageGallery style="--gap: 8px;">
 			{
 				pictures.map(picture => <img src={picture.src} alt={picture.alt} />)
 			}
