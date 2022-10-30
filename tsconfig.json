@@ -1,6 +1,19 @@
 {
-  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsxImportSource": "solid-js",
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "types": ["vite/client", "@testing-library/jest-dom"],
+    "baseUrl": "./",
+    "useDefineForClassFields": false,
+    "paths": {
+      "~/*": ["./src/*"]
+    },
     "plugins": [
       {
         "name": "ts-lit-plugin"
