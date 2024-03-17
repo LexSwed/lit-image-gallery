@@ -19,7 +19,7 @@
     "solid-testing-library": "^0.3.0",
     "ts-lit-plugin": "^1.2.1",
     "typescript": "^4.8.4",
-    "undici": "^5.26.2",
+    "undici": "^5.28.3",
     "vite": "^3.2.7",
     "vitest": "^0.20.3"
   },
